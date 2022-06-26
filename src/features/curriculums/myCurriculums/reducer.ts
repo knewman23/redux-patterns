@@ -98,3 +98,11 @@ export const selectMyCurriculumsFilter = (state: any) => {
 export const selectMyCurriculumsPage = (state: any) => {
     return selectMyCurriculumsState(state).page;
 }
+
+export const selectMyCurriculumsLimit = (state: any) => {
+    return selectMyCurriculumsState(state).maxCurriculumsLimitReached;
+}
+
+export const selectMyCurriculumsLimitWarning = (state: any) => {
+    return selectMyCurriculumsState(state).maxCurriculumsWarning;
+}

@@ -14,7 +14,7 @@ function FetchCurriculumIfNeededContainer({ curriculumKey, stateProps, fetchCurr
     }, [curriculumKey, needFetch, fetchCurriculum]);
 
     if (loading) {
-        return customLoading === undefined ? CircularProgress : customLoading;
+        return customLoading === undefined ? <CircularProgress size={20} /> : customLoading;
     } else if (error) {
         return hideError ? (childrenWhenError || null) : {"Error fetching curriculum: ": error};
     } else if (!children || !curriculum) {

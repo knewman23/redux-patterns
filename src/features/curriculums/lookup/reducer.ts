@@ -8,7 +8,7 @@ const initialState = {};
 const reducer = (state: any = initialState, action: any) => {
     switch (action.type) {
         case FetchCurriculumActionTypes.LOAD_CURRICULUM_SUCCESS: {
-            const curriculum = action.curriculum;
+            const curriculum = action.curriculum.data;
             const lastUpdateDate = state[curriculum.key]?.update_date;
             if (lastUpdateDate && lastUpdateDate === curriculum.update_date)
                 return state; // Don't update state (and re-render components) if it is the same curriculum
@@ -48,5 +48,5 @@ export default reducer;
 
 export const selectCurriculum = (state: any, curriculumKey: string) => {
     const lookup = selectCurriculumLookup(state);
-    return lookup[curriculumKey];
+    return lookup[parseInt(curriculumKey)];
 };

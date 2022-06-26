@@ -1,6 +1,8 @@
 import React from "react";
 import { TableBody, TableCell, TableRow, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import { Link } from "react-router-dom";
+import { curriculumDetailsUrl } from "../../../app/Routes";
 
 const useStyles = makeStyles((theme) => ({
 	nameCell: {
@@ -27,7 +29,14 @@ function DisplayTableRow({ curriculum }: any) {
 
 	return (
 		<TableRow>
-			<TableCell className={classes.nameCell}>{curriculum.title}</TableCell>
+			<TableCell className={classes.nameCell}>
+				<Link
+					className={classes.tableLink}
+					to={curriculumDetailsUrl(curriculum.key)}
+				>
+					{curriculum.title}
+				</Link>
+			</TableCell>
 			<TableCell>{curriculum.owner}</TableCell>
 			<TableCell>{curriculum.createdAt}</TableCell>{" "}
 			<TableCell>{curriculum.updatedAt}</TableCell>

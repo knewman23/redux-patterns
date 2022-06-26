@@ -48,7 +48,7 @@ const reducer = (state = initialState, action: any) => {
           page_size: envelope.page_size,
           total_results: envelope.total_count,
         },
-        curriculumKeys: curriculums.map((p: any) => p.curriculum_key),
+        curriculumKeys: curriculums.map((p: any) => p.key),
       };
     }
     default:
@@ -64,7 +64,7 @@ export const selectCurriculums = (state: any) => {
   if (!curriculumKeys) return null;
 
   const lookup = selectCurriculumLookup(state);
-  return curriculumKeys.map((curriculum_key: string) => lookup[curriculum_key]);
+  return curriculumKeys.map((key: string) => lookup[key]);
 };
 
 export const selectCurriculumsError = (state: any) => {

@@ -25,6 +25,7 @@ const mockCurriculums = [{
     key: 1,
     id: 1,
     title: "Some Mock Curriculum",
+    content: "Some really long content",
     owner: "Chris Ronzio",
     createdAt: Date.now(),
     updatedAt: Date.now()
@@ -32,6 +33,7 @@ const mockCurriculums = [{
     key: 2,
     id: 2,
     title: "Some Mock Curriculum2",
+    content: "Some really long content 2",
     owner: "Chris Ronzio",
     createdAt: Date.now(),
     updatedAt: Date.now()
@@ -40,8 +42,9 @@ const mockCurriculums = [{
 export function getCurriculum(key: any) {
      // const url = baseUrl + 'curriculums'
     // return parseAxiosResponse(axios.get(url));
+    const curriculum = mockCurriculums.filter(data => data.key === parseInt(key))[0]
     return new Promise<{ data: object }>((resolve) =>
-      setTimeout(() => resolve({ data: mockCurriculums }), 1000)
+      setTimeout(() => resolve({ data: curriculum }), 1000)
     );
 }
 

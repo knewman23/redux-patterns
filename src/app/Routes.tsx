@@ -1,6 +1,8 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import MyCurriculums from "../pages/MyCurriculumsPage";
+import CurriculumDetailsPage from "../pages/CurriculumDetailsPage";
+
 import NotFound from "../pages/NotFoundPage";
 import UnhandledErrorTestPage from "../pages/UnhandledErrorTestPage";
 import PrivateRoute from "./PrivateRoute";
@@ -26,6 +28,9 @@ export default function Routes() {
 				</Route>
 				<Route exact path={["/", curriculumsUrl()]}>
 					<MyCurriculums />
+				</Route>
+				<Route exact path={curriculumDetailsUrl(requiredParam(curriculumKey))}>
+					<CurriculumDetailsPage />
 				</Route>
 				<Route>
 					<NotFound />

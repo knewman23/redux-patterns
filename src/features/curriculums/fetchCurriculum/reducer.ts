@@ -26,7 +26,7 @@ const reducer = (state = initialState, action: any) => {
             };
         }
         case ActionTypes.LOAD_CURRICULUM_SUCCESS: {
-            const curriculumKey = action.curriculum.curriculum_key;
+            const curriculumKey = action.curriculum.data.key;
             // Note actually setting the curriculum in the lookup is done in a different reducer
             return {
                 ...state,
